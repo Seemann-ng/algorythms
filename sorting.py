@@ -47,4 +47,4 @@ class TestSorting:
 
     @params
     def testQuickSort(self, array, result):
-        assert self.sorting.quickSort(array) == resultgi
+        assert self.sorting.quickSort(array) == result
