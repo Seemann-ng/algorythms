@@ -12,9 +12,9 @@ class Recipe:
             print(f"- {ingredient}")
 
     def cook(self):
-        print(f"Today we're cooking {self.name}.\n"
-              f"We follow the instructions for preparing the dish {self.name}...\n"
-              f"The dish {self.name} is ready.")
+        print(f"""Today we're cooking {self.name}.\n
+              We follow the instructions for preparing the dish {self.name}...\n
+              The dish {self.name} is ready.""")
 
 
 spaghetti = Recipe("Spaghetti Bolognese", ["Spaghetti", "Ground meat", "Tomato sauce", "Onion", "Garlic", "Salt"])

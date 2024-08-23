@@ -27,16 +27,16 @@ album4 = MusicAlbum("Deutschland", "Rammstein", 2019, "Neue deutsche Härte",
                     ["Deutschland", "Radio", "Zeig dich", "Ausländer", "Sex",
                      "Puppe", "Was ich liebe", "Diamant", "Weit weg", "Tattoo", "Hallomann"])
 
-print(f"Album title: {album4.title}"
-      f"\nArtist: {album4.artist}"
-      f"\nRelease year: {album4.release_year}"
-      f"\nGenre: {album4.genre}"
-      f"\nTracks: {album4.tracklist}")
+print(f"""Album title: {album4.title}
+      \nArtist: {album4.artist}
+      \nRelease year: {album4.release_year}
+      \nGenre: {album4.genre}
+      \nTracks: {album4.tracklist}""")
 album4.playRandomTrack()
 while True:
     try:
         track_num = int(input("Choose the track number: "))
-        if track_num <= 0:
+        if not track_num :
             raise IndexError
         album4.platTrack(track_num)
         break
