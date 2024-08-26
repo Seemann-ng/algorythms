@@ -16,9 +16,9 @@ class Search:
             The index of the element of the array with the value equal to the target value if such element is present,
             otherwise returns None.
         """
-        if len(array) == 0:
+        if not array:
             return None
-        value_index = (len(array) - 1) // 2
+        value_index = len(array) // 2
         start_index = 0
         stop_index = len(array) - 1
         while True:
@@ -28,7 +28,7 @@ class Search:
                 stop_index = value_index
             elif target > array[value_index]:
                 start_index = value_index
-            value_index = start_index + (len(array[start_index:stop_index]) // 2)
+            value_index = start_index + (stop_index - start_index) // 2
             if stop_index - start_index <= 1:
                 if array[start_index] == target:
                     return start_index
