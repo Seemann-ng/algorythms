@@ -3,7 +3,8 @@ import pytest
 
 
 class Sorting:
-    def selectionSort(self, array: List[int]) -> List[int]:
+    @staticmethod
+    def selectionSort(array: List[int]) -> List[int]:
         for value1_index in range(len(array)):
             current_smallest_value = array[value1_index]
             current_smallest_value_index = value1_index
@@ -14,7 +15,8 @@ class Sorting:
             array[value1_index], array[current_smallest_value_index] = current_smallest_value, array[value1_index]
         return array
 
-    def quickSort(self, array: List[int]) -> List[int]:
+    @classmethod
+    def quickSort(cls, array: List[int]) -> List[int]:
         if len(array) < 2:
             return array
         pivot = array[len(array) // 2]
@@ -26,7 +28,7 @@ class Sorting:
                 greater.append(value)
             else:
                 equal.append(value)
-        return self.quickSort(less) + equal + self.quickSort(greater)
+        return cls.quickSort(less) + equal + cls.quickSort(greater)
 
 
 class TestSorting:
