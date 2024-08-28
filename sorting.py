@@ -16,13 +16,6 @@ class Sorting:
             array[value1_index], array[current_smallest_value_index] = current_smallest_value, array[value1_index]
         return array
 
-    def mergeSort(self, array: List[int]) -> List[int]:
-        if len(array) <= 1:
-            return array
-        middle_index = len(array) // 2
-        subarray1, subarray2 = array[:middle_index], array[middle_index:]
-        return mergeTwoSortedLists(self.mergeSort(subarray1), self.mergeSort(subarray2))
-
     @classmethod
     def quickSort(cls, array: List[int]) -> List[int]:
         if len(array) < 2:
@@ -37,6 +30,14 @@ class Sorting:
             else:
                 equal.append(value)
         return cls.quickSort(less) + equal + cls.quickSort(greater)
+
+    @classmethod
+    def mergeSort(cls, array: List[int]) -> List[int]:
+        if len(array) <= 1:
+            return array
+        middle_index = len(array) // 2
+        subarray1, subarray2 = array[:middle_index], array[middle_index:]
+        return mergeTwoSortedLists(cls.mergeSort(subarray1), cls.mergeSort(subarray2))
 
 
 class TestSorting:
