@@ -1,5 +1,5 @@
 from typing import List
-from mergeTwoSortedLists import mergeTwoSortedLists
+from mergeTwoLists import mergeTwoSortedLists
 import pytest
 
 
