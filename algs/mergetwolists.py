@@ -1,17 +1,19 @@
 from typing import List
+
 import pytest
 
 
-def mergeTwoSortedLists(list1: List[int], list2: List[int]) -> List[int]:
-    """
-    Merge two given lists sorted in non-decreasing order into one sorted list
+def merge_two_sorted_lists(list1: List[int], list2: List[int]) -> List[int]:
+    """Merge two given lists sorted in non-decreasing order into one sorted list
     containing all elements of the given lists.
+
     Args:
         list1: The first sorted in non-decreasing order list.
         list2: The second sorted in non-decreasing order list.
 
     Returns:
         Sorted in non-decreasing order list consisting all elements of the given lists.
+
     """
     result = []
     list1_index, list2_index = 0, 0
@@ -39,5 +41,5 @@ def mergeTwoSortedLists(list1: List[int], list2: List[int]) -> List[int]:
         ([0], [], [0])
     ]
 )
-def testMergeTwoSortedLists(list1, list2, result):
-    assert mergeTwoSortedLists(list1, list2) == result
+def test_merge_two_sorted_lists(list1, list2, result):
+    assert merge_two_sorted_lists(list1, list2) == result

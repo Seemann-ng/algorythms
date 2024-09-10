@@ -1,11 +1,22 @@
 from typing import List
+
 import pytest
-from mergeTwoLists import mergeTwoSortedLists
+
+from mergetwolists import merge_two_sorted_lists
 
 
 class Sorting:
     @staticmethod
-    def selectionSort(array: List[int]) -> List[int]:
+    def selection_sort(array: List[int]) -> List[int]:
+        """Use selection sort algorythm to sort list.
+
+        Args:
+            array: List to be sorted
+
+        Returns:
+            Sorted list.
+
+        """
         for value1_index in range(len(array)):
             current_smallest_value = array[value1_index]
             current_smallest_value_index = value1_index
@@ -16,8 +27,16 @@ class Sorting:
             array[value1_index], array[current_smallest_value_index] = current_smallest_value, array[value1_index]
         return array
 
-    @classmethod
-    def quickSort(cls, array: List[int]) -> List[int]:
+    def quick_sort(self, array: List[int]) -> List[int]:
+        """Use quick sort algorythm to sort list.
+
+        Args:
+            array: List to be sorted
+
+        Returns:
+            Sorted list.
+
+        """
         if len(array) < 2:
             return array
         pivot = array[len(array) // 2]
@@ -29,15 +48,23 @@ class Sorting:
                 greater.append(value)
             else:
                 equal.append(value)
-        return cls.quickSort(less) + equal + cls.quickSort(greater)
+        return self.quick_sort(less) + equal + self.quick_sort(greater)
 
-    @classmethod
-    def mergeSort(cls, array: List[int]) -> List[int]:
+    def merge_sort(self, array: List[int]) -> List[int]:
+        """Use merge sort algorythm to sort list.
+
+        Args:
+            array: List to be sorted
+
+        Returns:
+            Sorted list.
+
+        """
         if len(array) <= 1:
             return array
         middle_index = len(array) // 2
         subarray1, subarray2 = array[:middle_index], array[middle_index:]
-        return mergeTwoSortedLists(cls.mergeSort(subarray1), cls.mergeSort(subarray2))
+        return merge_two_sorted_lists(self.merge_sort(subarray1), self.merge_sort(subarray2))
 
 
 class TestSorting:
@@ -53,13 +80,13 @@ class TestSorting:
     )
 
     @params
-    def testSelectionSort(self, array, result):
-        assert self.sorting.selectionSort(array) == result
+    def test_selection_sort(self, array, result):
+        assert self.sorting.selection_sort(array) == result
 
     @params
-    def testQuickSort(self, array, result):
-        assert self.sorting.quickSort(array) == result
+    def test_quick_sort(self, array, result):
+        assert self.sorting.quick_sort(array) == result
 
     @params
-    def testMergeSort(self, array, result):
-        assert self.sorting.mergeSort(array) == result
+    def test_merge_sort(self, array, result):
+        assert self.sorting.merge_sort(array) == result
