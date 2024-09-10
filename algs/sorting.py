@@ -2,7 +2,7 @@ from typing import List
 
 import pytest
 
-from mergetwolists import merge_two_sorted_lists
+from mergetwolists import Merge
 
 
 class Sorting:
@@ -64,7 +64,7 @@ class Sorting:
             return array
         middle_index = len(array) // 2
         subarray1, subarray2 = array[:middle_index], array[middle_index:]
-        return merge_two_sorted_lists(self.merge_sort(subarray1), self.merge_sort(subarray2))
+        return Merge.two_sorted_lists(self.merge_sort(subarray1), self.merge_sort(subarray2))
 
 
 class TestSorting:

@@ -40,23 +40,27 @@ class Search:
                     return None
 
 
-@pytest.mark.parametrize(
-    "array,target,result",
-    [
-        ([], 1, None),
-        ([1], 0, None),
-        ([1], 1, 0),
-        ([1, 1, 3], 3, 2),
-        ([1, 1, 3], 1, 0 or 1),
-        ([1, 2, 3, 4], 5, None),
-        ([1, 2, 3], 0, None),
-        ([0, 2, 3, 5, 6, 7], 0, 0),
-        ([1, 2, 3, 4, 5, 5, 6, 7, 8], 3, 2),
-        ([1, 3, 4, 5, 6, 7, 8], 7, 5),
-        ([12, 167, 8900], 12, 0),
-        ([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 8, 8),
+class TestSearch:
+    search = Search()
+    params = pytest.mark.parametrize(
+        "array,target,result",
+        [
+            ([], 1, None),
+            ([1], 0, None),
+            ([1], 1, 0),
+            ([1, 1, 3], 3, 2),
+            ([1, 1, 3], 1, 0 or 1),
+            ([1, 2, 3, 4], 5, None),
+            ([1, 2, 3], 0, None),
+            ([0, 2, 3, 5, 6, 7], 0, 0),
+            ([1, 2, 3, 4, 5, 5, 6, 7, 8], 3, 2),
+            ([1, 3, 4, 5, 6, 7, 8], 7, 5),
+            ([12, 167, 8900], 12, 0),
+            ([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 8, 8),
 
-    ]
-)
-def test_binary_search(array, target, result):
-    assert Search.binary_search(array, target) == result
+        ]
+    )
+
+    @params
+    def test_binary_search(self, array, target, result):
+        assert self.search.binary_search(array, target) == result
