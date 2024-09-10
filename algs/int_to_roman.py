@@ -55,11 +55,77 @@ class Converter:
             num -= 1
         return roman_number
 
+    @staticmethod
+    def roman_to_int(roman_num: str) -> int:
+        """Convert number written in roman numerals into a number written in arabic numerals.
+
+        Args:
+            roman_num: Number written in roman numerals.
+
+        Returns:
+            Same number written in arabic numerals.
+
+        """
+        number, symbol_index = 0, 0
+        while symbol_index < len(roman_num):
+            if roman_num[symbol_index] == "M":
+                number += 1000
+                symbol_index += 1
+                continue
+            if roman_num[symbol_index] == "D":
+                number += 500
+                symbol_index += 1
+                continue
+            if roman_num[symbol_index] == "C":
+                if symbol_index < len(roman_num) - 1 and roman_num[symbol_index + 1] == "M":
+                    number += 900
+                    symbol_index += 2
+                    continue
+                if symbol_index < len(roman_num) - 1 and roman_num[symbol_index + 1] == "D":
+                    number += 400
+                    symbol_index += 2
+                    continue
+                number += 100
+                symbol_index += 1
+                continue
+            if roman_num[symbol_index] == "L":
+                number += 50
+                symbol_index += 1
+                continue
+            if roman_num[symbol_index] == "X":
+                if symbol_index < len(roman_num) - 1 and roman_num[symbol_index + 1] == "C":
+                    number += 90
+                    symbol_index += 2
+                    continue
+                if symbol_index < len(roman_num) - 1 and roman_num[symbol_index + 1] == "L":
+                    number += 40
+                    symbol_index += 2
+                    continue
+                number += 10
+                symbol_index += 1
+                continue
+            if roman_num[symbol_index] == "V":
+                number += 5
+                symbol_index += 1
+                continue
+            if roman_num[symbol_index] == "I":
+                if symbol_index < len(roman_num) - 1 and roman_num[symbol_index + 1] == "X":
+                    number += 9
+                    symbol_index += 2
+                    continue
+                if symbol_index < len(roman_num) - 1 and roman_num[symbol_index + 1] == "V":
+                    number += 4
+                    symbol_index += 2
+                    continue
+                number += 1
+                symbol_index += 1
+                continue
+        return number
+
 
 class TestConverter:
     converter = Converter()
-
-    @pytest.mark.parametrize(
+    params = pytest.mark.parametrize(
         "result,num",
         [
             ("I", 1),
@@ -88,5 +154,11 @@ class TestConverter:
 
         ]
     )
+
+    @params
     def test_int_to_roman(self, num, result):
         assert self.converter.int_to_roman(num) == result
+
+    @params
+    def test_roman_to_int(self, result, num):
+        assert self.converter.roman_to_int(result) == num
