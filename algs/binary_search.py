@@ -6,16 +6,14 @@ import pytest
 class Search:
     @staticmethod
     def binary_search(array: List[int], target: int) -> int or None:
-        """Search the index of an element, equal to the target value, in the given sorted array by the means
-        of the binary search algorythm, if the element is present in the array.
+        """Search index of target in sorted array with binary search algorythm, if the element is present in the array.
 
         Args:
-            array: The sorted array of values to search in.
-            target: The target value of an element of the array, the index of which is to be found.
+            array: Sorted array to search in.
+            target: Target item of array, the index of which is to be found.
 
         Returns:
-            The index of the element of the array with the value equal to the target value if such element is present,
-            otherwise returns None.
+            Index of item of the array with value equal to the target if such is present, otherwise returns None.
 
         """
         if not array:

@@ -6,15 +6,14 @@ import pytest
 class Merge:
     @staticmethod
     def two_sorted_lists(list1: List[int], list2: List[int]) -> List[int]:
-        """Merge two given lists sorted in non-decreasing order into one sorted list
-        containing all elements of the given lists.
+        """Merge two sorted non-decreasing lists into one sorted list containing all elements of given lists.
 
         Args:
-            list1: The first sorted in non-decreasing order list.
-            list2: The second sorted in non-decreasing order list.
+            list1: First sorted in non-decreasing order list.
+            list2: Second sorted in non-decreasing order list.
 
         Returns:
-            Sorted in non-decreasing order list consisting all elements of the given lists.
+            Sorted in non-decreasing order list consisting all elements of given lists.
 
         """
         result = []
