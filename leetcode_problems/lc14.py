@@ -13,6 +13,10 @@ class Solution:
         Returns:
             The longest common prefix.
 
+        Examples:
+            >>> print(Solution().longestCommonPrefix(["flower","flow","flight"]))
+            "fl"
+
         """
         strs.sort()
         prefix = ""

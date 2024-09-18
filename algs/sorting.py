@@ -11,27 +11,27 @@ class Sorting:
         """Use selection sort algorythm to sort list.
 
         Args:
-            array: List to be sorted
+            array: List to be sorted.
 
         Returns:
             Sorted list.
 
         """
-        for value1_index in range(len(array)):
-            current_smallest_value = array[value1_index]
-            current_smallest_value_index = value1_index
-            for value2_index in range(value1_index + 1, len(array)):
-                if array[value2_index] < current_smallest_value:
-                    current_smallest_value = array[value2_index]
-                    current_smallest_value_index = value2_index
-            array[value1_index], array[current_smallest_value_index] = current_smallest_value, array[value1_index]
+        for first_index in range(len(array)):
+            current_smallest_value = array[first_index]
+            current_smallest_value_index = first_index
+            for second_index in range(first_index + 1, len(array)):
+                if array[second_index] < current_smallest_value:
+                    current_smallest_value = array[second_index]
+                    current_smallest_value_index = second_index
+            array[first_index], array[current_smallest_value_index] = current_smallest_value, array[first_index]
         return array
 
     def quick_sort(self, array: List[int]) -> List[int]:
         """Use quick sort algorythm to sort list.
 
         Args:
-            array: List to be sorted
+            array: List to be sorted.
 
         Returns:
             Sorted list.
@@ -54,7 +54,7 @@ class Sorting:
         """Use merge sort algorythm to sort list.
 
         Args:
-            array: List to be sorted
+            array: List to be sorted.
 
         Returns:
             Sorted list.

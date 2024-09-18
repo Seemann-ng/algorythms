@@ -2,7 +2,8 @@ import pytest
 
 
 class Solution:
-    def romanToInt(self, s: str) -> int:
+    @staticmethod
+    def romanToInt(s: str) -> int:
         """Convert number written in roman numerals into a number written in arabic numerals.
 
         Args:

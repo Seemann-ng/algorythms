@@ -14,7 +14,7 @@ class Solution:
 
         Args:
             list1: Head of the first non-decreasing linked list.
-            list2: Head of the first non-decreasing linked list.
+            list2: Head of the second non-decreasing linked list.
 
         Returns:
             Head of non-decreasing linked list containing all nodes of given linked lists.

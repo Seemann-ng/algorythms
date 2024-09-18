@@ -22,20 +22,19 @@ class Search:
         start_index = 0
         stop_index = len(array) - 1
         while True:
-            if target == array[value_index]:
-                return value_index
-            elif target < array[value_index]:
+            if target < array[value_index]:
                 stop_index = value_index
             elif target > array[value_index]:
                 start_index = value_index
+            else:
+                return value_index
             value_index = start_index + (stop_index - start_index) // 2
             if stop_index - start_index <= 1:
                 if array[start_index] == target:
                     return start_index
                 elif array[stop_index] == target:
                     return stop_index
-                else:
-                    return None
+                return None
 
 
 class TestSearch:

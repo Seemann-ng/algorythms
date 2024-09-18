@@ -12,10 +12,8 @@ class Solution:
             True if number is a palindrome and False otherwise.
 
         """
-        if x < 0:
-            return False
-        elif x < 10:
-            return True
+        if x < 10:
+            return bool(x)
         x = str(x)
         for digit_index in range(len(x) // 2):
             if x[digit_index] != x[-digit_index - 1]:
