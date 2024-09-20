@@ -3,7 +3,7 @@ import pytest
 
 class Solution:
     def isPalindrome(self, x: int) -> bool:
-        """Tell if number is a palindrome.
+        """Check if number is a palindrome.
 
         Args:
             x: Given number.

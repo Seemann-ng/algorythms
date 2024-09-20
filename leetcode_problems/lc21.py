@@ -8,6 +8,7 @@ class ListNode:
 
 
 class Solution:
+    @staticmethod
     def mergeTwoLists(list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         """Merge two linked lists sorted in non-decreasing order into one sorted linked list
         containing all nodes of given lists.
