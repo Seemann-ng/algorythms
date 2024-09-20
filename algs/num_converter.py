@@ -3,7 +3,7 @@ import pytest
 
 class Converter:
     @staticmethod
-    def int_to_roman(num: int) -> str:
+    def int_to_roman(num: int) -> str | None:
         """Convert number written in arabic numerals into a number written in roman numerals.
 
         Args:
@@ -13,46 +13,28 @@ class Converter:
             Same number written in roman numerals.
 
         """
+        if num <= 0:
+            return "Number must be greater than zero."
         roman_number = ""
-        while num >= 1000:
-            roman_number += "M"
-            num -= 1000
-        while num >= 900:
-            roman_number += "CM"
-            num -= 900
-        while num >= 500:
-            roman_number += "D"
-            num -= 500
-        while num >= 400:
-            roman_number += "CD"
-            num -= 400
-        while num >= 100:
-            roman_number += "C"
-            num -= 100
-        while num >= 90:
-            roman_number += "XC"
-            num -= 90
-        while num >= 50:
-            roman_number += "L"
-            num -= 50
-        while num >= 40:
-            roman_number += "XL"
-            num -= 40
-        while num >= 10:
-            roman_number += "X"
-            num -= 10
-        while num >= 9:
-            roman_number += "IX"
-            num -= 9
-        while num >= 5:
-            roman_number += "V"
-            num -= 5
-        while num >= 4:
-            roman_number += "IV"
-            num -= 4
-        while num >= 1:
-            roman_number += "I"
-            num -= 1
+        numeral_values = {
+            "M": 1000,
+            "CM": 900,
+            "D": 500,
+            "CD": 400,
+            "C": 100,
+            "XC": 90,
+            "L": 50,
+            "XL": 40,
+            "X": 10,
+            "IX": 9,
+            "V": 5,
+            "IV": 4,
+            "I": 1
+        }
+        for symbol in numeral_values:
+            while num >= numeral_values[symbol]:
+                roman_number += symbol
+                num -= numeral_values[symbol]
         return roman_number
 
     @staticmethod
@@ -123,6 +105,7 @@ class Converter:
         return number
 
 
+Converter.int_to_roman(241)
 class TestConverter:
     converter = Converter()
     params = pytest.mark.parametrize(
@@ -151,7 +134,6 @@ class TestConverter:
             ("MCMXCIX", 1999),
             ("MCMXCIX", 1999),
             ("MMMCMXCIX", 3999),
-
         ]
     )
 
